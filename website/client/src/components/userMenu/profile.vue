@@ -6,11 +6,6 @@
   </div>
   <div class="profile" v-else-if="userLoaded">
     <div class="header">
-      <span
-        class="close-icon svg-icon inline icon-10"
-        @click="close()"
-        v-html="icons.close"
-      ></span>
       <div class="profile-actions d-flex">
         <router-link
           :to="{ path: '/private-messages', query: { uuid: user._id } }"
@@ -729,7 +724,6 @@ import lock from '@/assets/svg/lock.svg';
 import challenge from '@/assets/svg/challenge.svg';
 import member from '@/assets/svg/member-icon.svg';
 import staff from '@/assets/svg/tier-staff.svg';
-import svgClose from '@/assets/svg/close.svg';
 import error404 from '../404';
 // @TODO: EMAILS.COMMUNITY_MANAGER_EMAIL
 const COMMUNITY_MANAGER_EMAIL = 'admin@habitica.com';
@@ -757,7 +751,6 @@ export default {
         lock,
         member,
         staff,
-        close: svgClose,
       }),
       adminToolsLoaded: false,
       userIdToMessage: '',
