@@ -109,7 +109,6 @@ schema.methods.getObjectionsToInteraction = function getObjectionsToInteraction 
   )(checks);
 };
 
-
 /**
  * Sends a message to a user. Archives a copy in sender's inbox.
  *
@@ -251,7 +250,6 @@ schema.methods.addAchievement = function addAchievement (achievement) {
     seen: false,
   });
 };
-
 
 /**
  * Adds an achievement and a related notification to the user, saving it directly to the database
