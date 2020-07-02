@@ -29,19 +29,19 @@
         <checkbox
           :id="`checklist-${item.id}`"
           :checked.sync="item.completed"
-          :disabled="disabled"
+          :disabled="disabled || disableItems"
           class="input-group-prepend"
-          :class="{'cursor-auto': disabled}"
+          :class="{'cursor-auto': disabled || disableItems}"
         />
 
         <input
           v-model="item.text"
           class="inline-edit-input checklist-item form-control"
           type="text"
-          :disabled="disabled"
+          :disabled="disabled || disableItems"
         >
         <span
-          v-if="!disabled"
+          v-if="!disabled && !disableItems"
           class="input-group-append"
           @click="removeChecklistItem($index)"
         >
@@ -55,7 +55,7 @@
       </div>
     </draggable>
     <div
-      v-if="!disabled"
+      v-if="!disabled && !disableItems"
       class="inline-edit-input-group checklist-group input-group new-checklist"
     >
       <span
@@ -97,6 +97,12 @@ export default {
   },
   props: {
     disabled: {
+      type: Boolean,
+    },
+    disableDrag: {
+      type: Boolean,
+    },
+    disableItems: {
       type: Boolean,
     },
     items: {
