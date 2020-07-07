@@ -20,7 +20,7 @@
         class="inline-edit-input-group checklist-group input-group"
       >
         <span
-          v-if="!disabled"
+          v-if="!disabled && !disableDrag"
           class="grippy"
           v-html="icons.grip"
         >

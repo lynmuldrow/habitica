@@ -194,8 +194,8 @@
             class="habit-option-container no-transition
               d-flex flex-column justify-content-center align-items-center"
             :class="!task.up ? cssClass('habit-control-disabled') : ''"
-            @click="toggleUpDirection()"
             :disabled="challengeAccessRequired || groupAccessRequiredAndOnPersonalPage"
+            @click="toggleUpDirection()"
           >
             <div
               class="habit-option-button no-transition
@@ -220,8 +220,8 @@
             class="habit-option-container no-transition
               d-flex flex-column justify-content-center align-items-center"
             :class="!task.down ? cssClass('habit-control-disabled') : ''"
-            @click="toggleDownDirection()"
             :disabled="challengeAccessRequired || groupAccessRequiredAndOnPersonalPage"
+            @click="toggleDownDirection()"
           >
             <div
               class="habit-option-button no-transition
@@ -1305,8 +1305,8 @@ export default {
       createTag: 'tags:createTag',
     }),
     async syncTask () {
-      if (this.task && this.task.group) {
-        this.managerNotes = this.task.group.managerNotes || null;
+      if (this.task && this.task.group && this.task.group.managerNotes) {
+        this.managerNotes = this.task.group.managerNotes;
       }
       if (this.groupId && this.task.group && this.task.group.approval) {
         this.requiresApproval = this.task.group.approval.required;
